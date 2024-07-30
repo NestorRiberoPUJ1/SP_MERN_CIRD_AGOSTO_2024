@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- ETIQUETAS DE TEXTO -->
+    <h1>Titulo 1</h1>
+    <h2>Titulo 2</h2>
+    <h3>Titulo 3</h3>
+    <h4>Titulo 4</h4>
+    <h5>Titulo 5</h5>
+    <h6>Titulo 6</h6>
+
+    <p>Parrafo puede tener mucho texto</p>
+
+    <!-- LINKS -->
+    <a href="mailto:nestor@hotmail.com">Enviar</a>
+    <a href="https://www.google.com">Google</a>
+    <a href="tel:+">Llamar</a>
+
+    <!-- MODIFICADORES DE TEXTO -->
+
+    <p>EN nuestro bootcamp <strong>MERN</strong> aprendemos de todo sobre el <em>desarrollo</em>
+        <strong><em>WEB</em></strong>
+    </p>
+
+    <!-- LISTAS -->
+
+    <ul>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+    </ul>
+
+    <ol>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+    </ol>
+
+    <ul>
+        <li>E1</li>
+        <li> SUBLISTA:
+            <ol>
+                <li>SE1</li>
+                <li>SE2</li>
+                <li>SE3</li>
+            </ol>
+        </li>
+        <li>E2</li>
+    </ul>
+
+    <!-- TABLAS -->
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nestor</td>
+                <td>Ribero</td>
+                <td>27</td>
+            </tr>
+            <tr>
+                <td>Julio</td>
+                <td>Ortiz</td>
+                <td>40</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Pie de tabla</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- IMÁGENES Y VIDEOS -->
+
+    <img src="https://mario.nintendo.com/static/f350c31adcd6378b913f7660db299714/7e15c/mario.png" alt="mario"
+        height="256">
+    <!-- <img src="./img/congreso.jpg" alt="congreso" height="256"> -->
+
+    <video src="https://www.youtube.com/watch?v=fOd16PT1S7A"></video>
+
+    <!-- FORMULARIOS -->
+    <h3>DATOS DE ENVÍO</h3>
+    <form action="#">
+
+        <div>
+            <label for="nameIpt">NOMBRE</label>
+            <input type="text" name="firstname" id="nameIpt">
+        </div>
+        <label for="lastnameIpt">APELLIDO</label>
+        <input type="text" name="lastname" id="lastnameIpt">
+        <div>
+            <label for="emailIpt">CORREO</label>
+            <input type="email" name="email" id="emailIpt">
+        </div>
+        <div>
+            <label for="ageIpt">EDAD</label>
+            <input type="number" name="age" id="ageIpt">
+        </div>
+        <label for="birhtdateIpt">CUMPLEAÑOS</label>
+        <input type="date" name="birthdate" id="birhtdateIpt">
+        <div>
+            <label for="arrivalIpt">FECHA Y HORA DE LLEGADA</label>
+            <input type="datetime-local" name="arrival" id="arrivalIpt">
+        </div>
+        <div>
+            <label for="colorIpt">COLOR</label>
+            <input type="color" name="color" id="colorIpt">
+        </div>
+
+        <div>
+            <label>GÉNERO:</label>
+            <br>
+            <label for="generoM">MASCULINO</label>
+            <input type="radio" name="genero" id="generoM">
+            <label for="generoF">FEMENINO</label>
+            <input type="radio" name="genero" id="generoF">
+        </div>
+        <div>
+            <input type="checkbox" id="acepto" name="acepto">
+            <label for="acepto">Acepto los términos y condiciones</label>
+        </div>
+
+
+        <div>
+            <label for="comentarios">COMENTARIOS:</label>
+            <br>
+            <textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea>
+        </div>
+
+
+        <div>
+            <label for="pagoIpt">TIPO PAGO</label>
+            <select name="pago" id="pagoIpt">
+                <option value="cash">Efectivo</option>
+                <option value="card">Tarjeta</option>
+                <option value="paypal">Paypal</option>
+            </select>
+        </div>
+
+
+        <input type="submit" value="ENVIAR">
+
+    </form>
+
+
+
+</body>
+
+</html>
