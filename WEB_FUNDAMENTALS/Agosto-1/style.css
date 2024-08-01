@@ -1,0 +1,72 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+/* SELECTORES DE ETIQUETA  */
+h1 {
+    color: red;
+}
+
+li{
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+button{
+    height: 32px;
+    min-width: 64px;
+    border-radius: 8px;
+    background-color: dodgerblue;
+    border: 2px solid black;
+    padding: 0px 16px;
+}
+
+/* SELECTORES DE CLASE */
+
+.team{
+    font-size: 18px;
+    font-style: italic;
+}
+
+.carta{
+    background-color: rgb(191, 191, 191);
+    padding: 16px;
+    margin:16px;
+    border:4px dashed black;
+    border-radius: 16px;
+}
+
+/* SELECTOR POR ID */
+
+#profileImg{
+    height: 128px;
+    border: 2px solid black;
+    border-radius: 50%;
+    background-color: dodgerblue;
+}
+
+
+/* SELECTORES AVANZADOS */
+
+/* CUALQUIER ELEMENTO CONTENIDO */
+.carta p{
+    color:rgb(33, 33, 33)
+}
+
+/* HIJO DIRECTO */
+.carta > p{
+    margin: 12px 0px;
+}
+
+
+.carta > p.subParrafo{
+   text-decoration: underline; 
+}
+
+
+button[type="submit"]{
+    background-color: green;
+}
