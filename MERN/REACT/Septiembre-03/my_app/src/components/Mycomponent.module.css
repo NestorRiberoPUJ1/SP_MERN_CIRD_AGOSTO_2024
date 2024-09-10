@@ -1,0 +1,7 @@
+.titulo {
+    font-size: 1.5em;
+    color: white;
+    text-shadow: 2px 2px 2px #00815e;
+    text-decoration: line-through;
+    text-decoration-color: crimson;
+}
