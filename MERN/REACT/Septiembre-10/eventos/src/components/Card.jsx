@@ -20,12 +20,14 @@ const Card = ({ animal }) => {
 
     const handleLikes = () => {
         //incrementar el estado de likes
-        setLikes((prevValue) => {
-            //modificacion de likes
-            const newLikes = prevValue + 1;
-            setDescriptionLikes(` Con ${newLikes} Me gusta`);
-            return newLikes; // nuevo valor de likes
-        })
+        if (likes < 10) {
+            setLikes((prevValue) => {
+                //modificacion de likes
+                const newLikes = prevValue + 1;
+                setDescriptionLikes(` Con ${newLikes} Me gusta`);
+                return newLikes; // nuevo valor de likes
+            })
+        }
         console.log('LIKES', likes);
     }
 
