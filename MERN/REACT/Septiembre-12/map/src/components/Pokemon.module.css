@@ -1,0 +1,45 @@
+
+
+.PokeCard{
+    height: 400px;
+    width: 250px;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 16px;
+}
+
+.PokeHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.PokeImage{
+    width: 100%;
+    height: 150px;
+    background-color: gray;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.PokeImage img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.PokePowers{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    row-gap: 16px;
+}
