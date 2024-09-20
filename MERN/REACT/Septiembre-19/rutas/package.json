@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "rutas",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,10 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "api": "file:",
-    "axios": "^1.7.7",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "rutas": "file:"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
