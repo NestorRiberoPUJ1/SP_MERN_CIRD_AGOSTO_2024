@@ -1,46 +1,75 @@
-
-const listaCanciones = [
-    { id: 1, nombre: "Burning Love", autor: "Elvis Presley" },
-    { id: 2, nombre: "Yesterday", autor: "The Beatles" },
-    { id: 3, nombre: "Dancing Queen", autor: "ABBA" },
-    { id: 4, nombre: "Bohemian Rapsody", autor: "Queen" },
-];
+import Cancion from "../models/Canciones.model.js"
 
 
 
-const MostrarCanciones = (req, res) => {
-    res.json(listaCanciones);
-}
-
-const BuscarPorId = (req, res) => {
-    const { id } = req.params;// accedo la variable
-    console.log(id);
-    //buscar la cancion por id
-    const miCancion = listaCanciones.filter((value, index) => {
-        return value.id == id;
-    });//BUSCA LA CANCION POR ID
-    res.json(miCancion);
-}
-
-const ActualizarPorId = (req, res) => {
-    const { id } = req.params;// accedo la variable
-    const data = req.body;// obtenemos la informacion
-    console.log(id, data);
-    //buscar la cancion por id
-    const miCancion = listaCanciones.filter((value, index) => {
-        return value.id == id;
-    });//BUSCA LA CANCION POR ID
-    if (miCancion.length === 0) {
-        //no existe
-        return res.status(404).json("NO EXISTE");
+const CrearCancion = async (req, res) => {
+    const data = req.body;
+    try {
+        const nuevaCancion = await Cancion.create(data);
+        res.json(nuevaCancion);
+    } catch (error) {
+        console.log(error);
+        res.json(error);
     }
-    listaCanciones[parseInt(id) - 1] = data;
-    return res.json(listaCanciones);
+}
+
+const MostrarCanciones = async (req, res) => {
+    try {
+        const canciones = await Cancion.find();//retorna todas las canciones
+        res.json(canciones);
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+}
+
+const BuscarPorId = async (req, res) => {
+    const { id } = req.params;// accedo la variable
+    try {
+        const cancionPorId = await Cancion.findById(id);//Buscamos por id
+        res.json(cancionPorId);
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+}
+
+const ActualizarPorId = async (req, res) => {
+    const { id } = req.params;// accedo la variable
+    const data = req.body;
+    try {
+        const cancionPorId = await Cancion.findByIdAndUpdate(id, data, { new: true })
+        if (!cancionPorId) {
+            return res.status(404).json("La cancion no existe");
+        }
+        return res.json(cancionPorId);
+    } catch (error) {
+        console.log(error);
+        res.status(400).json(error);
+    }
+}
+
+
+const EliminarCancion = async (req, res) => {
+    const { id } = req.params;// accedo la variable
+    try {
+        const cancionEliminada = await Cancion.findByIdAndDelete(id);
+        if (!cancionEliminada) {
+            res.status(404).json({ mensaje: "Cancion no encontrada" });
+            return;
+        }
+        res.json({ mensaje: "Cancion eliminada correctamente" });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
 }
 
 
 export default {
+    CrearCancion,
     MostrarCanciones,
     BuscarPorId,
     ActualizarPorId,
+    EliminarCancion
 }
