@@ -9,11 +9,11 @@ const create = async (req, res) => {
     try {
         const data = req.body;
         const newElement = await User.create(data);
-        res.json(newElement).status(201);
+        res.status(201).json(newElement);
         return;
     } catch (error) {
         console.log(error);
-        res.json(error).status(500);
+        res.status(400).json(error);
         return;
     }
 }
@@ -21,11 +21,11 @@ const create = async (req, res) => {
 const findAll = async (req, res) => {
     try {
         const elements = await User.find();
-        res.json(elements).status(200);
+        res.status(200).json(elements);
         return;
     } catch (error) {
         console.log(error);
-        res.json(error).status(500);
+        res.status(500).json(error);
         return;
     }
 }
@@ -36,14 +36,14 @@ const findById = async (req, res) => {
         const element = await User.findById(id);
 
         if (!element) {
-            res.json("NOT FOUND").status(404);
+            res.status(404).json("NOT FOUND");
             return;
         }
-        res.json(element).status(200);
+        res.status(200).json(element);
         return;
     } catch (error) {
         console.log(error);
-        res.json(error).status(500);
+        res.status(500).json(error);
         return;
     }
 }
@@ -57,11 +57,11 @@ const updateById = async (req, res) => {
             res.json("NOT FOUND").status(404);
             return;
         }
-        res.json(element).status(200);
+        res.status(200).json(element);
         return;
     } catch (error) {
         console.log(error);
-        res.json(error).status(500);
+        res.status(500).json(error);
         return;
     }
 }
@@ -69,16 +69,16 @@ const updateById = async (req, res) => {
 const deleteById = async (req, res) => {
     try {
         const { id } = req.params;
-        const element = await User.deleteById(id);
+        const element = await User.findByIdAndDelete(id);
         if (!element) {
             res.json("NOT FOUND").status(404);
             return;
         }
-        res.json(element).status(200);
+        res.status(200).json(element);
         return;
     } catch (error) {
         console.log(error);
-        res.json(error).status(500);
+        res.status(500).json(error);
         return;
     }
 }
