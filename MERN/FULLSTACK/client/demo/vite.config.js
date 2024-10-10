@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
@@ -11,6 +12,22 @@ export default defineConfig({
         target: 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
+        selfHandleResponse: false,
+        configure: (proxy, _options) => {
+          proxy.on('proxyRes', (proxyRes, req, res) => {
+            if (proxyRes.statusCode === 401) {
+              // Si el servidor responde con un 401, redirigimos al usuario a la página de login
+              console.log("HAZ SIDO REDIRIGIDO");
+              res.writeHead(401, {
+                'Location': '/'
+              });
+              res.end();
+              return;
+            }
+            // continue normally
+            proxyRes.pipe(res);
+          });
+        }
       },
     },//CONFIGURAR LOS PREFIJOS DE LAS PETICIONES
 
